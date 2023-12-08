@@ -16,12 +16,7 @@ exports.createMenuItem = (name, price, image) => {
   )
 
 
-      // res.status(201).json(newMenuItem);
-      // return newMenuItem;
-    // } catch (error) {
-    //   next(error);
-    // }
-  // })
+
 };
 
 exports.getAllMenuItems = async (req, res, next) => {
@@ -57,7 +52,8 @@ exports.updateMenuItem = async (req, res, next) => {
 exports.deleteMenuItem = async (req, res, next) => {
   try {
     const { id } = req.params;
-    const deletedMenuItem = await Menu.findByIdAndRemove(id);
+    // console.log(id)
+    const deletedMenuItem = await Menu.findByIdAndDelete(id);
     res.status(200).json(deletedMenuItem);
   } catch (error) {
     next(error);

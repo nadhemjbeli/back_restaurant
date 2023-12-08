@@ -7,6 +7,7 @@ const dbConnect = require("./config/dbConnect");
 
  const userRoute = require("./routes/userRoute");
 const menuRoute=require("./routes/menuRoute")
+const contactRoute=require("./routes/contactRoute")
 const { notFound, errorHandler } = require("./middlewares/errorHandler");
 
 
@@ -26,6 +27,7 @@ app.use(cors());
 // app.use(morgan("dev"));
 app.use("/api/user", userRoute);
 app.use("/api/menu", menuRoute);
+app.use("/api/contact", contactRoute);
 app.use('/uploads', express.static('uploads'));
 
 app.use(notFound);
